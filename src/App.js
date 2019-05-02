@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
+import 'toastr/build/toastr.css'
 import './App.css';
 import Nav from './components/Nav';
 import About from './views/About';
 import Friends from './views/MyFriends';
+import Login from './views/Login';
 
 const Home = ()=> <h1>You are, yes you are home!!</h1>
 
@@ -17,6 +19,7 @@ function App() {
         <Route path="/" component={Home} />
         <Route path="/About" component={About} />
         <Route path="/MyFriends" component={Friends} />
+        <Route path="/Login" component={Login} />
       </Router>
     </div>
   );

@@ -1,4 +1,5 @@
 import { oAuthLogin } from "./users";
+  /* globals FB */
   
   window.fbAsyncInit = function() {
     FB.init({
