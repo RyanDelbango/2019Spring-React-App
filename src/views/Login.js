@@ -4,14 +4,15 @@ import { Login } from "../models/users";
 import * as fb from "../models/facebook";
 import toastr from 'toastr';
 
-export default ()=> {
+export default props=> {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   async function submit(e){
     e.preventDefault();
     try {
-      await Login({email, password});
+      props.login({ x: await Login({email, password})});
+      props.history.push('/')
       toastr.success("You've logged in successfully!")
     } catch (error) {
       Globals.errors.push(error);
@@ -21,6 +22,7 @@ export default ()=> {
   async function facebookLogin(e){
     e.preventDefault();
     const m = await fb.Login();
+    props.login(m);
     console.log( {m} );
   }
 
